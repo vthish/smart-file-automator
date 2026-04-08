@@ -2,7 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Stars](https://img.shields.io/github/stars/YOUR_USERNAME/smart-file-automator?style=social)](https://github.com/YOUR_USERNAME/smart-file-automator)
+[![GitHub Stars](https://img.shields.io/github/stars/vthish/smart-file-automator?style=social)](https://github.com/vthish/smart-file-automator)
 
 A lightweight and efficient Python script that automatically organizes your messy folders by sorting files into categorized directories based on their extensions.
 
