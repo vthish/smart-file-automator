@@ -3,29 +3,42 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/vthish/smart-file-automator?style=social)](https://github.com/vthish/smart-file-automator)
-[![Release](https://img.shields.io/github/v/release/vthish/smart-file-automator?include_prereleases)](https://github.com/vthish/smart-file-automator/releases)
 
-A lightweight and efficient Python-based desktop application that automatically organizes your messy folders. It sorts files and sub-folders into categorized directories based on their extensions.
+A lightweight and efficient desktop application that automatically organizes messy folders by sorting files and sub-folders into categorized directories.
 
 ---
 
-## 🛠️ New Features
-* **🖥️ User-Friendly GUI:** No more terminal commands! Use the interactive interface to select folders.
-* **📂 Full Organization:** Now handles both **Files** and **Sub-folders**.
-* **⚡ Portable Executable (.exe):** Run it directly on Windows without installing Python.
-* **🛡️ Error Handling:** Smoothly skips locked files (like those syncing with OneDrive).
-* **🗂️ Categorization:** Groups items into Images, Documents (including .sql), Videos, Audio, and Archives. Unknown types move to "Others".
+## 📥 Download (Latest Version)
+You can download the ready-to-use application for Windows from the link below:
+
+👉 **[Download organizer.exe](https://github.com/vthish/smart-file-automator/releases/tag/v1.0.0)**
+
+*(Note: No Python installation required to run the .exe version)*
+
+---
+
+## 🛠️ Key Features
+* [cite_start]**🖥️ User-Friendly GUI:** Simple interface to select folders with a built-in directory browser.
+* [cite_start]**📂 Folder Organization:** Automatically moves sub-folders into the 'Others' directory to keep the root clean.
+* [cite_start]**🛡️ Smart Error Handling:** Smoothly skips files that are locked or currently syncing (e.g., OneDrive syncing).
+* **⚡ Portable:** Runs as a standalone executable (.exe) on Windows.
+* **🗂️ Categorization:**
+    * **Images:** .jpg, .jpeg, .png, .gif, .svg, .webp
+    * **Documents:** .pdf, .docx, .txt, .xlsx, .pptx, .sql
+    * **Videos:** .mp4, .mkv, .mov, .avi
+    * **Audio:** .mp3, .wav, .aac
+    * **Archives:** .zip, .rar, .7z, .tar
 
 ---
 
 ## 📂 How It Works
-Select any directory (like your Downloads or Desktop), and with one click, it transforms from a mess into this:
+Select any directory (like your Downloads folder), and one click will organize it as follows:
 
 ```text
-📁 Selected Folder
- ┣ 📁 Images (.jpg, .png, .gif, .webp)
- ┣ 📁 Documents (.pdf, .docx, .txt, .xlsx, .sql)
- ┣ 📁 Videos (.mp4, .mkv, .mov)
- ┣ 📁 Audio (.mp3, .wav)
- ┣ 📁 Archives (.zip, .rar, .7z)
- ┗ 📁 Others (Folders & unidentified files)
+📁 Target Folder
+ ┣ 📁 Images
+ ┣ 📁 Documents
+ ┣ 📁 Videos
+ ┣ 📁 Audio
+ ┣ 📁 Archives
+ ┗ 📁 Others (Sub-folders & unknown file types)
