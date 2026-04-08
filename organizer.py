@@ -1,46 +1,98 @@
 import os
 import shutil
+import tkinter as tk
+from tkinter import filedialog, messagebox
 
-print("File Organizer Loaded Successfully")
+class FileAutomatorApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Smart File Automator - Venusha Thishan") 
+        self.root.geometry("500x250")
 
-def organize_folder(target_path):
-    # Mapping file extensions to folder names
-    file_types = {
-        'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg'],
-        'Documents': ['.pdf', '.docx', '.txt', '.xlsx', '.pptx'],
-        'Videos': ['.mp4', '.mkv', '.mov', '.avi'],
-        'Audio': ['.mp3', '.wav', '.aac'],
-        'Archives': ['.zip', '.rar', '.7z', '.tar']
-    }
+        # UI Components
+        self.label = tk.Label(root, text="Select Folder to Organize:", font=("Arial", 10))
+        self.label.pack(pady=10)
 
-    if not os.path.exists(target_path):
-        print("The provided path does not exist!")
-        return
+        self.path_entry = tk.Entry(root, width=50)
+        self.path_entry.pack(pady=5)
 
-    for filename in os.listdir(target_path):
-        file_path = os.path.join(target_path, filename)
+        self.browse_btn = tk.Button(root, text="Browse Folder", command=self.browse_folder)
+        self.browse_btn.pack(pady=5)
+
+        self.start_btn = tk.Button(root, text="Start Organizing", bg="green", fg="white", 
+                                   command=self.run_organizer, font=("Arial", 10, "bold"))
+        self.start_btn.pack(pady=20)
+
+    def browse_folder(self):
+        selected_path = filedialog.askdirectory()
+        if selected_path:
+            self.path_entry.delete(0, tk.END)
+            self.path_entry.insert(0, selected_path)
+
+    def run_organizer(self):
+        target = self.path_entry.get()
+        if not target or not os.path.exists(target):
+            messagebox.showerror("Error", "Please select a valid folder path!")
+            return
+
+        # Define file categories and their extensions
+        file_types = {
+            'Images': ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp'],
+            'Documents': ['.pdf', '.docx', '.txt', '.xlsx', '.pptx', '.sql'],
+            'Videos': ['.mp4', '.mkv', '.mov', '.avi'],
+            'Audio': ['.mp3', '.wav', '.aac'],
+            'Archives': ['.zip', '.rar', '.7z', '.tar']
+        }
         
-        # Checking if it's a file and not a directory
-        if os.path.isfile(file_path):
-            file_ext = os.path.splitext(filename)[1].lower()
+        # Folders to exclude from being moved
+        protected_folders = list(file_types.keys()) + ['Others']
+        count = 0
+
+        try:
+            for item in os.listdir(target):
+                item_path = os.path.join(target, item)
+                
+                # Skip the script itself and already organized folders
+                if item == "organizer.py" or item in protected_folders:
+                    continue
+                
+                moved = False
+                try:
+                    # Logic to handle FILES
+                    if os.path.isfile(item_path):
+                        file_ext = os.path.splitext(item)[1].lower()
+                        for folder_name, extensions in file_types.items():
+                            if file_ext in extensions:
+                                dest_folder = os.path.join(target, folder_name)
+                                os.makedirs(dest_folder, exist_ok=True)
+                                shutil.move(item_path, os.path.join(dest_folder, item))
+                                moved = True
+                                break
+                    
+                    # Logic to handle SUB-FOLDERS (Move them to 'Others')
+                    elif os.path.isdir(item_path):
+                        other_folder = os.path.join(target, 'Others')
+                        os.makedirs(other_folder, exist_ok=True)
+                        shutil.move(item_path, os.path.join(other_folder, item))
+                        moved = True
+
+                    # Move unknown file types to 'Others'
+                    if not moved:
+                        other_folder = os.path.join(target, 'Others')
+                        os.makedirs(other_folder, exist_ok=True)
+                        shutil.move(item_path, os.path.join(other_folder, item))
+                    
+                    count += 1
+
+                except Exception as e:
+                    # Print error to terminal if a specific file is locked/busy
+                    print(f"Skipped {item}: {e}")
             
-            moved = False
-            for folder_name, extensions in file_types.items():
-                if file_ext in extensions:
-                    dest_folder = os.path.join(target_path, folder_name)
-                    os.makedirs(dest_folder, exist_ok=True)
-                    shutil.move(file_path, os.path.join(dest_folder, filename))
-                    print(f"Moved: {filename} -> {folder_name}")
-                    moved = True
-                    break
-            
-            # If extension is not in the list, move to 'Others'
-            if not moved:
-                other_folder = os.path.join(target_path, 'Others')
-                os.makedirs(other_folder, exist_ok=True)
-                shutil.move(file_path, os.path.join(other_folder, filename))
+            messagebox.showinfo("Success", f"Organization Complete! Processed {count} items.")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    print("Starting organization process...")
-  
-    organize_folder(r'C:\Users\venus\OneDrive\Downloads')
+    root = tk.Tk()
+    app = FileAutomatorApp(root)
+    root.mainloop()
