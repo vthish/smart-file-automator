@@ -1,28 +1,31 @@
-# 🚀 Smart File Automator
+# 🚀 Smart File Automator (GUI Version)
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/vthish/smart-file-automator?style=social)](https://github.com/vthish/smart-file-automator)
+[![Release](https://img.shields.io/github/v/release/vthish/smart-file-automator?include_prereleases)](https://github.com/vthish/smart-file-automator/releases)
 
-A lightweight and efficient Python script that automatically organizes your messy folders by sorting files into categorized directories based on their extensions.
+A lightweight and efficient Python-based desktop application that automatically organizes your messy folders. It sorts files and sub-folders into categorized directories based on their extensions.
 
 ---
 
-## 🛠️ Features
-* **Automatic Categorization:** Groups files into Images, Documents, Videos, Audio, and Archives.
-* **Clean Organization:** Moves unknown file types into an "Others" folder.
-* **User Friendly:** Simple Python logic with no external dependencies required.
-* **Time Saving:** Perfect for cleaning up your 'Downloads' or 'Desktop' folders in seconds.
+## 🛠️ New Features
+* **🖥️ User-Friendly GUI:** No more terminal commands! Use the interactive interface to select folders.
+* **📂 Full Organization:** Now handles both **Files** and **Sub-folders**.
+* **⚡ Portable Executable (.exe):** Run it directly on Windows without installing Python.
+* **🛡️ Error Handling:** Smoothly skips locked files (like those syncing with OneDrive).
+* **🗂️ Categorization:** Groups items into Images, Documents (including .sql), Videos, Audio, and Archives. Unknown types move to "Others".
 
 ---
 
 ## 📂 How It Works
-Before running the script, your folder might look like a mess. After running, it becomes:
+Select any directory (like your Downloads or Desktop), and with one click, it transforms from a mess into this:
 
 ```text
-📁 Target Folder
- ┣ 📁 Images (.jpg, .png, .gif)
- ┣ 📁 Documents (.pdf, .docx, .xlsx)
- ┣ 📁 Videos (.mp4, .mkv)
+📁 Selected Folder
+ ┣ 📁 Images (.jpg, .png, .gif, .webp)
+ ┣ 📁 Documents (.pdf, .docx, .txt, .xlsx, .sql)
+ ┣ 📁 Videos (.mp4, .mkv, .mov)
  ┣ 📁 Audio (.mp3, .wav)
- ┗ 📁 Others (unidentified files)
+ ┣ 📁 Archives (.zip, .rar, .7z)
+ ┗ 📁 Others (Folders & unidentified files)
