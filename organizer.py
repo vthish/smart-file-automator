@@ -1,6 +1,8 @@
 import os
 import shutil
 
+print("File Organizer Loaded Successfully")
+
 def organize_folder(target_path):
     # Mapping file extensions to folder names
     file_types = {
