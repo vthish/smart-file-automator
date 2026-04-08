@@ -42,4 +42,5 @@ def organize_folder(target_path):
 
 if __name__ == "__main__":
     print("Starting organization process...")
-    # Example usage: organize_folder('C:/Users/YourName/Downloads')
+  
+    organize_folder(r'C:\Users\venus\OneDrive\Downloads')
