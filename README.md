@@ -9,7 +9,7 @@ A lightweight and efficient desktop application that automatically organizes mes
 
 ---
 
-## 📥 Download (Latest Version)
+## 📥 Download (Latest Version)..
 You can download the ready-to-use application for Windows from the link below:
 
 👉 **[Download organizer.exe](https://github.com/vthish/smart-file-automator/releases/tag/v1.0.0)**
