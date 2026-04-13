@@ -29,7 +29,7 @@ You can download the ready-to-use application for Windows from the link below:
     * **Videos:** .mp4, .mkv, .mov, .avi
     * **Audio:** .mp3, .wav, .aac
     * **Archives:** .zip, .rar, .7z, .tar
-
+/////////////////////////////////////
 ---
 
 ## 📂 How It Works
